@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#294887">
+  <meta name="description" content="Stride Clinic | تمارين العلاج الطبيعي والمتابعة.">
+  <title>Stride Clinic | التمارين والمتابعة</title>
+  <style>
+    :root { --ink:#17312e; --muted:#647571; --brand:#0f6158; --dark:#0a4942; --soft:#e8f2f0; --line:#dce5e2; --bg:#f5f7f6; --white:#fff; --danger:#9a3636; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--ink); font-family:Tahoma,Arial,"Segoe UI",sans-serif; line-height:1.7; }
+    button,input,select,textarea { font:inherit; }
+    button { cursor:pointer; }
+    a { color:inherit; }
+    .wrap { width:min(1140px,calc(100% - 30px)); margin-inline:auto; }
+    .topbar { background:var(--white); border-bottom:1px solid var(--line); position:sticky; top:0; z-index:20; transition:transform .32s ease,box-shadow .32s ease; will-change:transform; }
+    .topbar.is-hidden { transform:translateY(-105%); }
+    .topbar.is-scrolled { box-shadow:0 8px 24px #17312e12; }
+    .top-inner { min-height:70px; display:flex; align-items:center; gap:18px; }
+    .brand { margin-left:auto; display:flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; }
+    .brand-mark { width:38px; height:38px; display:grid; place-items:center; border-radius:11px; color:white; background:var(--brand); font-size:22px; line-height:1; }
+    .brand small { display:block; color:var(--muted); font-size:11px; font-weight:400; margin-top:-3px; }
+    .desktop-nav { display:flex; gap:5px; }
+    .nav-button { background:none; border:0; border-radius:10px; color:var(--muted); padding:9px 14px; font-weight:700; }
+    .nav-button:hover,.nav-button.active { color:var(--brand); background:var(--soft); }
+    .mobile-nav { display:none; position:relative; }
+    .mobile-nav summary { display:grid; place-items:center; width:40px; height:40px; border:1px solid var(--line); border-radius:10px; background:white; cursor:pointer; list-style:none; }
+    .mobile-nav summary::-webkit-details-marker { display:none; }
+    .mobile-nav nav { position:absolute; top:46px; left:0; width:210px; display:grid; gap:4px; background:white; border:1px solid var(--line); border-radius:12px; padding:8px; box-shadow:0 18px 30px #17312e1c; }
+    .mobile-nav .nav-button { text-align:right; }
+    .page { display:none; }
+    .page.active { display:block; }
+    .hero { padding:43px 0 30px; }
+    .eyebrow { color:var(--brand); font-weight:800; font-size:13px; margin:0 0 10px; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { font-size:clamp(30px,5vw,46px); line-height:1.25; letter-spacing:-.035em; margin-bottom:10px; }
+    .lead { color:var(--muted); font-size:16px; max-width:720px; margin:0; }
+    .button { border:0; border-radius:10px; padding:10px 15px; background:var(--brand); color:white; font-weight:800; display:inline-flex; align-items:center; justify-content:center; gap:6px; text-decoration:none; }
+    .button:hover { background:var(--dark); }
+    .button.secondary { background:white; color:var(--ink); border:1px solid var(--line); }
+    .button.secondary:hover { background:var(--soft); }
+    .alert { display:none; border:1px solid #e3b8b8; background:#fff2f2; color:var(--danger); border-radius:12px; padding:12px 15px; margin-bottom:22px; white-space:pre-line; font-size:13px; }
+    .alert.visible { display:block; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:18px; margin-bottom:18px; }
+    .section-head h2 { font-size:clamp(22px,3vw,29px); margin:0 0 2px; }
+    .count-inline { color:var(--muted); font-size:14px; font-weight:400; margin-inline-start:6px; }
+    .section-head p { color:var(--muted); font-size:13px; margin:0; }
+    .search { width:min(100%,280px); border:1px solid var(--line); border-radius:10px; padding:10px 13px; background:white; outline:none; }
+    .search:focus,.field input:focus,.field select:focus,.field textarea:focus { border-color:var(--brand); box-shadow:0 0 0 3px var(--soft); }
+    .filters { display:flex; overflow:auto; gap:8px; padding-bottom:8px; margin-bottom:12px; }
+    .filter { flex:0 0 auto; border:1px solid var(--line); background:white; color:var(--muted); border-radius:999px; padding:7px 14px; font-weight:700; font-size:13px; }
+    .filter.active { color:white; border-color:var(--brand); background:var(--brand); }
+    .category-description { color:var(--dark); background:var(--soft); border-radius:11px; padding:10px 14px; font-size:13px; margin-bottom:20px; }
+    .video-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:19px; padding-bottom:70px; }
+    .card { min-width:0; overflow:hidden; border:1px solid var(--line); background:white; border-radius:15px; box-shadow:0 10px 27px #12312d0c; }
+    .video-box { aspect-ratio:16/9; background:#dfe7e5; }
+    .video-cover { position:relative; width:100%; height:100%; display:block; border:0; padding:0; overflow:hidden; background:#dfe7e5; color:white; }
+    .video-cover img { width:100%; height:100%; display:block; object-fit:cover; }
+    .video-cover::after { content:""; position:absolute; inset:50% auto auto 50%; transform:translate(-50%,-50%); width:58px; height:42px; border-radius:11px; background:#d53131; box-shadow:0 5px 16px #0004; }
+    .video-cover::before { content:""; position:absolute; z-index:1; inset:50% auto auto 50%; transform:translate(-40%,-50%); border-top:10px solid transparent; border-bottom:10px solid transparent; border-left:16px solid white; }
+    .video-box iframe { border:0; width:100%; height:100%; display:block; }
+    .video-copy { padding:17px; }
+    .tag { display:inline-block; border-radius:100px; background:var(--soft); color:var(--brand); font-weight:800; font-size:11px; padding:3px 9px; margin-bottom:9px; }
+    .video-copy h3 { font-size:16px; line-height:1.55; margin-bottom:7px; }
+    .video-copy p { color:var(--muted); font-size:13px; min-height:44px; margin-bottom:13px; }
+    .video-meta { display:flex; flex-wrap:wrap; gap:4px 12px; color:var(--muted); border-top:1px solid var(--line); padding-top:11px; font-size:12px; }
+    .video-meta a { color:var(--brand); text-decoration:none; font-weight:700; }
+    .empty { padding:34px; color:var(--muted); border:1px dashed var(--line); border-radius:13px; background:white; text-align:center; margin-bottom:70px; }
+    .forms-page { padding:52px 0 75px; }
+    .forms-title { max-width:760px; margin-bottom:27px; }
+    .forms-title h1 { font-size:clamp(28px,4vw,42px); }
+    .forms-title p { color:var(--muted); margin:0; }
+    .form-layout { display:grid; grid-template-columns:230px minmax(0,1fr); gap:22px; align-items:start; }
+    .survey-tabs { display:grid; gap:8px; position:sticky; top:91px; }
+    .survey-tab { text-align:right; border:1px solid var(--line); background:white; color:var(--muted); border-radius:11px; padding:12px 13px; font-weight:700; }
+    .survey-tab.active { color:var(--dark); border-color:#b8d3ce; background:var(--soft); }
+    .survey-tab small { display:block; font-weight:400; margin-top:2px; }
+    .form-card { border:1px solid var(--line); border-radius:15px; background:white; padding:clamp(19px,3vw,30px); }
+    .form-card h2 { font-size:23px; margin:0 0 4px; }
+    .form-card > p { color:var(--muted); font-size:13px; margin-bottom:22px; }
+    .field { margin-bottom:21px; }
+    .field label { display:block; font-weight:800; font-size:13px; margin-bottom:7px; }
+    .field label.required::after { content:" *"; color:var(--danger); }
+    .field input:not([type=range]),.field select,.field textarea { width:100%; border:1px solid var(--line); border-radius:10px; background:#fbfcfc; padding:10px 12px; color:var(--ink); outline:none; }
+    .field textarea { min-height:96px; resize:vertical; }
+    .field input[type=range] { width:calc(100% - 58px); accent-color:var(--brand); vertical-align:middle; }
+    .range-value { display:inline-grid; place-items:center; width:47px; padding:5px; background:var(--soft); color:var(--brand); border-radius:8px; margin-right:7px; font-weight:800; }
+    .hint { color:var(--muted); font-size:11px; margin-top:5px; }
+    .form-actions { display:flex; justify-content:space-between; gap:10px; border-top:1px solid var(--line); padding-top:19px; margin-top:8px; }
+    .modal { display:none; position:fixed; inset:0; z-index:50; background:#0b221dd4; padding:18px; align-items:center; justify-content:center; }
+    .modal.open { display:flex; }
+    .modal-shell { width:min(750px,100%); max-height:95vh; display:flex; flex-direction:column; background:var(--bg); border-radius:16px; overflow:hidden; }
+    .modal-head { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:13px 16px; }
+    .modal-head strong { font-size:16px; }
+    .modal-actions { display:flex; gap:7px; }
+    .report-scroll { overflow:auto; }
+    .report { width:100%; background:white; padding:35px; }
+    .report h1 { font-size:25px; border-bottom:2px solid var(--brand); padding-bottom:11px; margin-bottom:18px; }
+    .report-date { color:var(--muted); font-size:12px; margin-bottom:20px; }
+    .report section { margin-bottom:23px; break-inside:avoid; }
+    .report h2 { color:var(--dark); font-size:17px; margin-bottom:10px; }
+    .answer { display:grid; grid-template-columns:1fr 1fr; gap:15px; border-bottom:1px solid #e4e9e7; padding:7px 0; font-size:12px; }
+    .answer strong { white-space:pre-wrap; overflow-wrap:anywhere; }
+    .footer { background:white; border-top:1px solid var(--line); color:var(--muted); font-size:12px; padding:20px 0; }
+    .reveal-ready .reveal { opacity:0; transform:translateY(17px); transition:opacity .48s ease,transform .48s ease; }
+    .reveal-ready .reveal.is-visible { opacity:1; transform:none; }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } .topbar,.reveal-ready .reveal { transition:none; } .reveal-ready .reveal { opacity:1; transform:none; } }
+    @media(max-width:900px) { .video-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .form-layout { grid-template-columns:1fr; } .survey-tabs { display:flex; overflow:auto; position:static; } .survey-tab { min-width:180px; } }
+    @media(max-width:680px) { .top-inner { min-height:63px; } .desktop-nav { display:none; } .mobile-nav { display:block; } .hero { padding:38px 0 23px; } .section-head { flex-direction:column; align-items:stretch; } .search { width:100%; } .video-grid { grid-template-columns:1fr; } .video-copy p { min-height:0; } .forms-page { padding-top:36px; } .form-actions { flex-direction:column; } .form-actions .button { width:100%; } .modal { padding:0; } .modal-shell { max-height:100vh; border-radius:0; } .modal-head { flex-direction:column; align-items:stretch; } .modal-actions .button { flex:1; } .report { padding:22px; } }
+    @media print { body > *:not(.modal) { display:none!important; } .modal { display:block!important; position:static; background:white; padding:0; } .modal-shell { width:100%; max-height:none; display:block; border-radius:0; } .modal-head { display:none; } .report-scroll { overflow:visible; } .report { padding:12mm; } @page { size:A4; margin:0; } }
+  </style>
+  <link rel="stylesheet" href="./stride.css">
+</head>
+<body>
+  <svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="icon-facebook" viewBox="0 0 320 512"><path fill="currentColor" d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.25-50.06H297V6.26S260.4 0 225.36 0C152.22 0 104.42 44.38 104.42 124.72v70.62H23.11V288h81.31v224h100.03V288z"/></symbol>
+    <symbol id="icon-instagram" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="18" cy="6" r="1.25" fill="currentColor"/></symbol>
+    <symbol id="icon-location" viewBox="0 0 24 24"><path d="M12 22s7-6.7 7-12a7 7 0 1 0-14 0c0 5.3 7 12 7 12Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  </svg>
+  <header class="topbar">
+    <div class="wrap top-inner">
+      <a class="brand" href="#home" id="brand-link"><span class="brand-mark" aria-hidden="true"><img src="./assets/stride-logo.png" alt=""></span><span class="brand-name">STRIDE <b>CLINIC</b><small>العلاج الطبيعي والتأهيل</small></span></a>
+      <nav class="desktop-nav" aria-label="التنقل الرئيسي"><button type="button" class="nav-button active" data-page="home">الرئيسية</button><button type="button" class="nav-button" data-page="surveys">المتابعة</button></nav>
+      <div class="social-icons header-icons" aria-label="روابط العيادة"><a class="icon-link" href="https://www.facebook.com/p/Stride-Clinic-61575582637063/" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك" title="فيسبوك"><svg aria-hidden="true"><use href="#icon-facebook"/></svg></a><a class="icon-link instagram" href="https://www.instagram.com/stride_clinic" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام" title="إنستغرام"><svg aria-hidden="true"><use href="#icon-instagram"/></svg></a><a class="icon-link" href="https://share.google/d2oDr01yW7UcouUeu" target="_blank" rel="noopener noreferrer" aria-label="موقع العيادة" title="موقع العيادة"><svg aria-hidden="true"><use href="#icon-location"/></svg></a></div>
+      <details class="mobile-nav" id="mobile-nav"><summary aria-label="فتح القائمة">☰</summary><nav aria-label="قائمة الهاتف"><button type="button" class="nav-button active" data-page="home">الرئيسية</button><button type="button" class="nav-button" data-page="surveys">المتابعة</button><div class="social-icons mobile-icons"><a class="icon-link" href="https://www.facebook.com/p/Stride-Clinic-61575582637063/" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك" title="فيسبوك"><svg aria-hidden="true"><use href="#icon-facebook"/></svg></a><a class="icon-link instagram" href="https://www.instagram.com/stride_clinic" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام" title="إنستغرام"><svg aria-hidden="true"><use href="#icon-instagram"/></svg></a><a class="icon-link" href="https://share.google/d2oDr01yW7UcouUeu" target="_blank" rel="noopener noreferrer" aria-label="موقع العيادة" title="موقع العيادة"><svg aria-hidden="true"><use href="#icon-location"/></svg></a></div></nav></details>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="page active">
+      <div class="wrap">
+        <div class="hero">
+          <div class="hero-content"><span class="eyebrow"><span class="eyebrow-line"></span> STRIDE CLINIC · رحلة الحركة</span><h1>كل خطوة<br><em>تستحق بداية أفضل.</em></h1><div class="hero-actions"><button type="button" class="button secondary" data-page="surveys">المتابعة</button></div><div class="hero-foot"><span class="pulse-dot"></span> تحرّك بثقة، خطوة بخطوة</div></div>
+          <div class="hero-visual"><img src="./assets/hero-therapy.png" alt="أخصائية علاج طبيعي تساعد مراجعًا في تمرين للحركة" fetchpriority="high"></div>
+        </div>
+        <div class="alert" id="content-error" role="alert"></div>
+        <div class="section-head" id="exercise-library"><div><h2>تمارينك في مكان واحد <span id="video-count" class="count-inline">0</span></h2><p>اختر منطقة العلاج المناسبة أو ابحث عن التمرين بالاسم.</p></div><input class="search" id="search" type="search" placeholder="ابحث عن تمرين..." aria-label="ابحث عن تمرين"></div>
+        <div class="filters" id="filters" aria-label="تصفية حسب منطقة العلاج"></div>
+        <div class="category-description" id="category-description" hidden></div>
+        <div class="video-grid" id="videos"></div>
+        <div class="empty" id="video-empty">لا توجد تمارين متاحة الآن.</div>
+        <section class="care-feature"><div class="care-photo"><img src="./assets/guided-exercise.png" alt="أخصائية تتابع تمرين الركبة مع مريضة" loading="lazy"></div><div class="care-copy"><span class="section-kicker">متابعة أسهل</span><h2>سجّل تقدّمك، وشارك تقريرك مع العيادة.</h2><p>أجب عن استبيان المتابعة ثم أرسله إلى فريقك العلاجي بالطريقة المناسبة لك</p><button type="button" class="button" data-page="surveys">ابدأ المتابعة <span aria-hidden="true">←</span></button></div></section>
+        <section class="social-feature"><div class="social-copy"><span class="section-kicker">تابع Stride Clinic</span><h2>المزيد من العيادة</h2><p>تابع صفحات العيادة للاطلاع على الفيديوهات والمنشورات الجديدة.</p><div class="social-feature-links"><a class="button social-button" href="https://www.facebook.com/p/Stride-Clinic-61575582637063/" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#icon-facebook"/></svg> فيسبوك ↗</a><a class="button social-button" href="https://www.instagram.com/stride_clinic" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#icon-instagram"/></svg> إنستغرام ↗</a></div></div><img src="./assets/stride-cover.png" alt="صورة غلاف Stride Clinic" loading="lazy"></section>
+        <section class="clinic-video" aria-labelledby="clinic-video-title"><div class="clinic-video-copy"><span class="section-kicker">من صفحة العيادة</span><h2 id="clinic-video-title">فيديو من Stride Clinic</h2><p>شاهد الفيديو هنا، أو افتحه مباشرة على فيسبوك إذا لم يظهر المشغّل في متصفحك.</p><a class="button secondary" href="https://www.facebook.com/61575582637063/videos/1559548238819731/" target="_blank" rel="noopener noreferrer">فتح الفيديو على فيسبوك ↗</a></div><div class="clinic-video-frame"><iframe title="فيديو من صفحة Stride Clinic على فيسبوك" src="https://www.facebook.com/plugins/video.php?height=476&amp;href=https%3A%2F%2Fwww.facebook.com%2F61575582637063%2Fvideos%2F1559548238819731%2F&amp;show_text=false&amp;width=267&amp;t=0" width="267" height="476" loading="lazy" scrolling="no" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div></section>
+      </div>
+    </section>
+
+    <section id="surveys" class="page forms-page">
+      <div class="wrap">
+        <header class="forms-title"><span class="section-kicker">متابعة رحلتك</span><h1>المتابعة</h1><p>أكمل الإجابات، ثم احفظ تقريرك وأرسله إلى العيادة.</p></header>
+        <div class="form-layout"><nav class="survey-tabs" id="survey-tabs" aria-label="قائمة الاستبيانات"></nav><div id="survey-content"><div class="empty">لا توجد استبيانات متاحة الآن.</div></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="wrap footer-inner"><span>© <span id="year"></span> Stride Clinic</span><a class="footer-location" href="https://share.google/d2oDr01yW7UcouUeu" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#icon-location"/></svg> 10 ب شارع الخمسين · زهراء المعادي</a><div class="social-icons footer-icons"><a class="icon-link" href="https://www.facebook.com/p/Stride-Clinic-61575582637063/" target="_blank" rel="noopener noreferrer" aria-label="فيسبوك" title="فيسبوك"><svg aria-hidden="true"><use href="#icon-facebook"/></svg></a><a class="icon-link instagram" href="https://www.instagram.com/stride_clinic" target="_blank" rel="noopener noreferrer" aria-label="إنستغرام" title="إنستغرام"><svg aria-hidden="true"><use href="#icon-instagram"/></svg></a><a class="icon-link" href="https://share.google/d2oDr01yW7UcouUeu" target="_blank" rel="noopener noreferrer" aria-label="موقع العيادة" title="موقع العيادة"><svg aria-hidden="true"><use href="#icon-location"/></svg></a></div></div></footer>
+
+  <div class="modal" id="report-modal" role="dialog" aria-modal="true" aria-labelledby="report-title"><div class="modal-shell"><div class="modal-head"><strong id="report-title">معاينة تقرير المتابعة</strong><div class="modal-actions"><button class="button secondary" type="button" id="close-report">إغلاق</button><button class="button" type="button" id="save-pdf">حفظ PDF</button></div></div><div class="report-scroll"><p id="pdf-status" role="status" style="margin:0 0 10px;color:#9b2c2c" hidden></p><article class="report" id="report"></article></div></div></div>
+
+  <script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.19.0/firebase-database-compat.js"></script>
+  <script src="./firebase-config.js"></script>
+  <script src="./content-model.js"></script>
+  <script>
+    (() => {
+      'use strict';
+      const $ = id => document.getElementById(id);
+      const state = {categories:[],videos:[],surveys:[],questions:[],options:[],filter:'all',search:'',surveyId:null};
+      let filterTimer=null;
+      const byOrder = (a,b) => Number(a.order || 9999) - Number(b.order || 9999);
+      const clean = value => String(value ?? '').trim();
+      const el = (tag,className,textValue) => { const node=document.createElement(tag); if(className) node.className=className; if(textValue!==undefined) node.textContent=textValue; return node; };
+      const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let lastScrollY=window.scrollY;
+      let scrollQueued=false;
+      const revealObserver = !reducedMotion && 'IntersectionObserver' in window ? new IntersectionObserver(entries=>{
+        entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}});
+      },{rootMargin:'0px 0px -35px 0px',threshold:.05}) : null;
+      if(revealObserver) document.body.classList.add('reveal-ready');
+      function observeReveals(){
+        document.querySelectorAll('.page.active .hero,.page.active .section-head,.page.active .card,.page.active .care-feature,.page.active .social-feature,.page.active .clinic-video,.page.active .forms-title,.page.active .form-card').forEach(node=>{
+          if(node.dataset.revealObserved)return;
+          node.dataset.revealObserved='true';node.classList.add('reveal');
+          if(revealObserver)revealObserver.observe(node);else node.classList.add('is-visible');
+        });
+      }
+      window.addEventListener('scroll',()=>{
+        if(scrollQueued)return;scrollQueued=true;
+        requestAnimationFrame(()=>{
+          const y=Math.max(0,window.scrollY),delta=y-lastScrollY;
+          const bar=document.querySelector('.topbar');
+          bar.classList.toggle('is-scrolled',y>15);
+          if(y<95||delta<-7)bar.classList.remove('is-hidden');
+          else if(delta>7 && y>140 && !$('mobile-nav').open && !$('report-modal').classList.contains('open'))bar.classList.add('is-hidden');
+          lastScrollY=y;scrollQueued=false;
+        });
+      },{passive:true});
+
+      function showPage(id) {
+        const target = id === 'surveys' ? 'surveys' : 'home';
+        document.querySelectorAll('.page').forEach(page => page.classList.toggle('active',page.id===target));
+        document.querySelectorAll('[data-page]').forEach(button => button.classList.toggle('active',button.dataset.page===target));
+        $('mobile-nav').open = false;
+        if(location.hash !== '#'+target) history.replaceState(null,'','#'+target);
+        window.scrollTo({top:0,behavior:'smooth'});
+        document.querySelector('.topbar').classList.remove('is-hidden');
+        observeReveals();
+      }
+      document.querySelectorAll('[data-page]').forEach(button => button.addEventListener('click',()=>showPage(button.dataset.page)));
+      $('brand-link').addEventListener('click',event=>{event.preventDefault();showPage('home');});
+      window.addEventListener('hashchange',()=>showPage(location.hash.slice(1)));
+      $('year').textContent = new Date().getFullYear();
+      if(location.hash==='#surveys') showPage('surveys');
+
+      function parseContent(raw) {
+        if(!window.ClinicContent) throw new Error('تعذّر تحميل قواعد المحتوى.');
+        const content=ClinicContent.normalize(raw);
+        return {
+          categories:content.categories.filter(x=>x.active).sort(byOrder),
+          videos:content.videos.filter(x=>x.active).map(x=>({...x,youtubeId:ClinicContent.youtubeId(x.url)})).sort(byOrder),
+          surveys:content.surveys.filter(x=>x.active).sort(byOrder),
+          questions:content.questions.sort(byOrder),
+          options:content.options.sort(byOrder)
+        };
+      }
+
+      function showContentError(error='') {
+        $('content-error').textContent=error;
+        $('content-error').classList.toggle('visible',Boolean(error));
+      }
+      function applyContent(data) {
+        Object.keys(answers).forEach(key=>delete answers[key]);
+        Object.assign(state,data);
+        state.filter='all'; state.search=''; $('search').value='';
+        state.surveyId=state.surveys[0]?.id || null;
+        renderFilters(); renderVideos(); renderSurveys();
+        observeReveals();
+        showContentError();
+      }
+      async function autoLoad() {
+        try {
+          if(!window.firebase || !window.CLINIC_FIREBASE) throw new Error('خدمة المحتوى غير متاحة.');
+          const app=firebase.apps.length ? firebase.app() : firebase.initializeApp(CLINIC_FIREBASE.config);
+          const snapshot=await app.database().ref(CLINIC_FIREBASE.contentPath).get();
+          if(!snapshot.exists()) throw new Error('لم يُنشر المحتوى بعد.');
+          const value=snapshot.val();
+          applyContent(parseContent(typeof value==='string' ? JSON.parse(value) : value));
+        } catch(error) {
+          try {
+            const response=await fetch('./content.json?updated='+Date.now(),{cache:'no-store'});
+            if(!response.ok) throw new Error('لا توجد نسخة محلية.');
+            applyContent(parseContent(await response.json()));
+            showContentError('تعذّر الاتصال بالمحتوى المنشور. تُعرض النسخة الاحتياطية من الموقع.');
+          } catch {
+            showContentError('تعذّر تحميل محتوى الموقع. يرجى المحاولة لاحقًا.');
+          }
+        }
+      }
+
+      function renderFilters() {
+        const box=$('filters'); box.replaceChildren();
+        [{id:'all',title:'جميع التمارين'},...state.categories].forEach(category=>{
+          const button=el('button','filter'+(category.id===state.filter?' active':''),category.title);
+          button.type='button'; button.addEventListener('click',()=>{
+            if(state.filter===category.id)return;
+            const grid=$('videos');grid.classList.add('is-switching');
+            const update=()=>{state.filter=category.id;renderFilters();renderVideos();requestAnimationFrame(()=>grid.classList.remove('is-switching'));};
+            if(filterTimer)clearTimeout(filterTimer);
+            if(reducedMotion)update();else filterTimer=setTimeout(()=>{filterTimer=null;update();},170);
+          }); box.append(button);
+        });
+      }
+      function renderVideos() {
+        const category=state.categories.find(item=>item.id===state.filter);
+        $('category-description').hidden=!category;
+        $('category-description').textContent=category?.description || '';
+        const activeCategories=new Map(state.categories.map(x=>[x.id,x]));
+        const visible=state.videos.filter(item=>activeCategories.has(item.categoryId) && (state.filter==='all'||item.categoryId===state.filter) && (!state.search||(item.title+' '+item.description+' '+activeCategories.get(item.categoryId).title).toLocaleLowerCase('ar').includes(state.search)));
+        $('video-count').textContent=String(visible.length);
+        const grid=$('videos'); grid.replaceChildren();
+        visible.forEach((item,index)=>{
+          const card=el('article','card');
+          card.style.animationDelay=Math.min(index,8)*55+'ms';
+          const frame=el('div','video-box');
+          const cover=el('button','video-cover'); cover.type='button'; cover.setAttribute('aria-label','تشغيل فيديو: '+item.title);
+          const image=el('img'); image.src='https://i.ytimg.com/vi/'+item.youtubeId+'/hqdefault.jpg'; image.alt=''; image.loading='lazy';
+          image.addEventListener('error',()=>{image.style.display='none';cover.style.background='#31589d';});
+          cover.append(image);
+          cover.addEventListener('click',()=>{
+            const iframe=el('iframe'); iframe.src='https://www.youtube-nocookie.com/embed/'+item.youtubeId+'?autoplay=1&rel=0'; iframe.title=item.title;
+            iframe.allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'; iframe.allowFullscreen=true;
+            frame.replaceChildren(iframe);
+          });
+          frame.append(cover);
+          const copy=el('div','video-copy');
+          copy.append(el('span','tag',activeCategories.get(item.categoryId).title),el('h3','',item.title),el('p','',item.description));
+          const meta=el('div','video-meta');
+          if(item.duration) meta.append(el('span','',item.duration));
+          if(item.level) meta.append(el('span','',item.level));
+          const link=el('a','','مشاهدة على يوتيوب'); link.href=item.url; link.target='_blank'; link.rel='noopener noreferrer'; meta.append(link); copy.append(meta);
+          card.append(frame,copy); grid.append(card);
+        });
+        $('video-empty').hidden=visible.length>0;
+        if(!visible.length) $('video-empty').textContent=state.videos.length?'لا توجد تمارين تطابق البحث أو الفئة المحددة.':'لا توجد فيديوهات مفعّلة في ملف المحتوى.';
+        observeReveals();
+      }
+      $('search').addEventListener('input',event=>{state.search=event.target.value.trim().toLocaleLowerCase('ar');renderVideos();});
+
+      function createField(question) {
+        const field=el('div','field');
+        const label=el('label',question.required?'required':'',question.title); label.htmlFor='q-'+question.id;
+        let input;
+        if(question.type==='فقرة') input=el('textarea');
+        else if(question.type==='اختيار'||question.type==='فئة') {
+          input=el('select'); input.append(el('option','','اختر إجابة'));
+          input.firstChild.value='';
+          const choices=question.type==='فئة' ? state.categories.map(x=>x.title) : state.options.filter(x=>x.questionId===question.id).map(x=>x.title);
+          choices.forEach(value=>{const option=el('option','',value);option.value=value;input.append(option);});
+        } else if(question.type==='مقياس') {
+          input=el('input'); input.type='range'; input.min=String(question.min); input.max=String(question.max); input.value=String(question.min);
+        } else { input=el('input'); input.type=question.type==='تاريخ'?'date':'text'; }
+        input.id='q-'+question.id; input.name=question.id; input.required=question.required;
+        if(question.type==='تاريخ' && question.id==='report_date') input.value=new Date().toISOString().slice(0,10);
+        if(question.hint && (question.type==='نص'||question.type==='فقرة')) input.placeholder=question.hint;
+        field.append(label,input);
+        if(question.type==='مقياس') {const output=el('output','range-value',input.value); output.htmlFor=input.id; input.addEventListener('input',()=>output.textContent=input.value); field.append(output);}
+        if(question.hint && question.type!=='نص' && question.type!=='فقرة') field.append(el('div','hint',question.hint));
+        return field;
+      }
+      function renderSurveys() {
+        const tabs=$('survey-tabs'); tabs.replaceChildren();
+        state.surveys.forEach(survey=>{
+          const button=el('button','survey-tab'+(survey.id===state.surveyId?' active':'')); button.type='button';
+          button.textContent=survey.title;
+          button.addEventListener('click',()=>{collectAnswers();state.surveyId=survey.id;renderSurveys();}); tabs.append(button);
+        });
+        const container=$('survey-content'); container.replaceChildren();
+        const survey=state.surveys.find(x=>x.id===state.surveyId);
+        if(!survey) {container.append(el('div','empty','لا توجد استبيانات مفعّلة في ملف المحتوى.'));return;}
+        const card=el('div','form-card'); card.append(el('h2','',survey.title),el('p','',survey.description));
+        state.questions.filter(q=>q.surveyId===survey.id).forEach(question=>card.append(createField(question)));
+        const actions=el('div','form-actions');
+        const index=state.surveys.findIndex(x=>x.id===survey.id);
+        if(index>0){const back=el('button','button secondary','السابق');back.type='button';back.addEventListener('click',()=>{collectAnswers();state.surveyId=state.surveys[index-1].id;renderSurveys();});actions.append(back);}
+        if(index<state.surveys.length-1){const next=el('button','button','التالي');next.type='button';next.addEventListener('click',()=>{collectAnswers();state.surveyId=state.surveys[index+1].id;renderSurveys();});actions.append(next);}
+        else {const finish=el('button','button','مراجعة التقرير وحفظه PDF');finish.type='button';finish.addEventListener('click',buildReport);actions.append(finish);}
+        card.append(actions); container.append(card);
+        restoreAnswers();
+        observeReveals();
+      }
+      const answers={};
+      function collectAnswers(){document.querySelectorAll('#survey-content [name]').forEach(input=>answers[input.name]=input.value);}
+      function restoreAnswers(){document.querySelectorAll('#survey-content [name]').forEach(input=>{if(Object.prototype.hasOwnProperty.call(answers,input.name)){input.value=answers[input.name];if(input.type==='range') input.parentElement.querySelector('output').textContent=input.value;}});}
+      function valueFor(question) {return clean(answers[question.id]) || 'لم تتم الإجابة';}
+      function buildReport() {
+        collectAnswers();
+        for(const question of state.questions.filter(q=>q.required && state.surveys.some(s=>s.id===q.surveyId))){
+          if(!clean(answers[question.id])) {state.surveyId=question.surveyId;renderSurveys(); const input=$('q-'+question.id); input.focus(); input.reportValidity(); return;}
+        }
+        const report=$('report'); report.replaceChildren();
+        report.append(el('h1','','Stride Clinic | تقرير متابعة العلاج الطبيعي'),el('div','report-date','تاريخ إعداد التقرير: '+new Intl.DateTimeFormat('ar-EG',{dateStyle:'long'}).format(new Date())));
+        state.surveys.forEach(survey=>{
+          const section=el('section'); section.append(el('h2','',survey.title));
+          state.questions.filter(q=>q.surveyId===survey.id).forEach(question=>{
+            const row=el('div','answer'); row.append(el('span','',question.title),el('strong','',valueFor(question))); section.append(row);
+          });
+          report.append(section);
+        });
+        $('report-modal').classList.add('open'); document.body.style.overflow='hidden';
+      }
+      function closeReport(){$('report-modal').classList.remove('open');document.body.style.overflow='';}
+      $('close-report').addEventListener('click',closeReport);
+      $('report-modal').addEventListener('click',event=>{if(event.target===$('report-modal'))closeReport();});
+      document.addEventListener('keydown',event=>{if(event.key==='Escape')closeReport();});
+      function loadScript(src,globalName) {return new Promise((resolve,reject)=>{if(window[globalName])return resolve();const script=el('script');script.src=src;script.onload=resolve;script.onerror=reject;document.head.append(script);});}
+      $('save-pdf').addEventListener('click',async event=>{
+        const button=event.currentTarget;button.disabled=true;button.textContent='جاري إعداد الملف...';
+        $('pdf-status').hidden=true;
+        try {
+          await loadScript('./html2canvas.min.js','html2canvas');
+          await loadScript('./jspdf.umd.min.js','jspdf');
+          const canvas=await html2canvas($('report'),{scale:2,backgroundColor:'#fff',windowWidth:750,logging:false});
+          const img=canvas.toDataURL('image/jpeg',.94);
+          const pdf=new jspdf.jsPDF({orientation:'portrait',unit:'mm',format:'a4',compress:true});
+          const width=194,height=canvas.height*width/canvas.width,step=281;
+          for(let page=0,offset=0;offset<height;page++,offset+=step){if(page)pdf.addPage();pdf.addImage(img,'JPEG',8,8-offset,width,height,undefined,'FAST');}
+          const name=clean(answers.patient_name).replace(/[\\/:*?"<>|]/g,'-')||'المريض';
+          pdf.save('Stride-Clinic-تقرير-المتابعة-'+name+'.pdf');
+        } catch(error) {
+          console.error('PDF export failed:',error);
+          $('pdf-status').textContent='تعذّر إنشاء PDF مباشرة. يمكنك اختيار «طباعة» ثم «حفظ بتنسيق PDF» من المتصفح.';
+          $('pdf-status').hidden=false;
+        }
+        finally {button.disabled=false;button.textContent='حفظ PDF';}
+      });
+      autoLoad();
+    })();
+  </script>
+</body>
+</html>

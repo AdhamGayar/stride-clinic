@@ -1,0 +1,613 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "knee",
+      "title": "الركبة",
+      "description": "تمارين لتحسين حركة الركبة وتقوية العضلات المحيطة بها وفق توجيه المختص.",
+      "order": 1,
+      "active": true
+    },
+    {
+      "id": "back",
+      "title": "أسفل الظهر",
+      "description": "حركات لطيفة للمنطقة القطنية مع الحفاظ على حدود الراحة.",
+      "order": 2,
+      "active": true
+    },
+    {
+      "id": "neck",
+      "title": "الرقبة",
+      "description": "تمارين مرونة وتحكم تؤدى ببطء ومن دون ضغط.",
+      "order": 3,
+      "active": true
+    },
+    {
+      "id": "shoulder",
+      "title": "الكتف",
+      "description": "تمارين حركة وتقوية تدريجية لمفصل الكتف.",
+      "order": 4,
+      "active": true
+    },
+    {
+      "id": "ankle",
+      "title": "الكاحل",
+      "description": "تمارين حركة وتوازن وتقوية بعد موافقة المختص.",
+      "order": 5,
+      "active": true
+    },
+    {
+      "id": "test",
+      "title": "اختبار",
+      "description": "تمارين اختبار من اكسل",
+      "order": 6,
+      "active": true
+    }
+  ],
+  "videos": [
+    {
+      "id": "video-01",
+      "categoryId": "knee",
+      "title": "إطالات أساسية لتحسين حركة الركبة",
+      "description": "تحريك الركبة وإطالة عضلات الساق والفخذ وفق حدود الحركة المريحة.",
+      "url": "https://www.youtube.com/watch?v=Qv9XGskry4M",
+      "duration": "10–12 دقيقة",
+      "level": "مبتدئ",
+      "order": 1,
+      "active": true
+    },
+    {
+      "id": "video-02",
+      "categoryId": "knee",
+      "title": "روتين متدرّج لتقوية الركبة",
+      "description": "جلسة تجمع بين الإطالة ورفع الساق وتقوية العضلات الداعمة للركبة.",
+      "url": "https://www.youtube.com/watch?v=NkOwuoJCAuQ",
+      "duration": "12 دقيقة",
+      "level": "حزام",
+      "order": 2,
+      "active": true
+    },
+    {
+      "id": "video-03",
+      "categoryId": "back",
+      "title": "حركات لطيفة لأسفل الظهر",
+      "description": "حركات بسيطة لتحسين راحة الظهر والحركة اليومية دون إجهاد.",
+      "url": "https://www.youtube.com/watch?v=ChWYEtIycWU",
+      "duration": "8 دقائق",
+      "level": "بساط",
+      "order": 3,
+      "active": true
+    },
+    {
+      "id": "video-04",
+      "categoryId": "back",
+      "title": "تمارين مرونة أسفل الظهر",
+      "description": "تسلسل تمارين أرضية لتحسين مرونة المنطقة القطنية.",
+      "url": "https://www.youtube.com/watch?v=dRA5r4mOHy4",
+      "duration": "10 دقائق",
+      "level": "مبتدئ",
+      "order": 4,
+      "active": true
+    },
+    {
+      "id": "video-05",
+      "categoryId": "neck",
+      "title": "إطالات الرقبة ووضعية الجلوس",
+      "description": "حركات لطيفة للدوران والانحناء وإطالة عضلات الرقبة والكتف العلوية.",
+      "url": "https://www.youtube.com/watch?v=2NOsE-VPpkE",
+      "duration": "6 دقائق",
+      "level": "دون أدوات",
+      "order": 5,
+      "active": true
+    },
+    {
+      "id": "video-06",
+      "categoryId": "shoulder",
+      "title": "استعادة مدى حركة الكتف",
+      "description": "تمارين البندول والانزلاق على الطاولة والجدار لدعم الحركة تدريجيًا.",
+      "url": "https://www.youtube.com/watch?v=DJvQ3ZGWUfQ",
+      "duration": "7 دقائق",
+      "level": "طاولة",
+      "order": 6,
+      "active": true
+    },
+    {
+      "id": "video-07",
+      "categoryId": "shoulder",
+      "title": "تقوية العضلات الداعمة للكتف",
+      "description": "تمارين تحكم وتقوية خفيفة للكتف ولوح الكتف.",
+      "url": "https://www.youtube.com/watch?v=ShVVBSZJeBc",
+      "duration": "9 دقائق",
+      "level": "شريط مقاومة",
+      "order": 7,
+      "active": true
+    },
+    {
+      "id": "video-08",
+      "categoryId": "ankle",
+      "title": "تقوية الكاحل في أربعة اتجاهات",
+      "description": "تدريب للتحكم في حركة الكاحل باستخدام شريط المقاومة.",
+      "url": "https://www.youtube.com/watch?v=g-iXYapbuqk",
+      "duration": "6 دقائق",
+      "level": "شريط مقاومة",
+      "order": 8,
+      "active": true
+    },
+    {
+      "id": "video-09",
+      "categoryId": "ankle",
+      "title": "استعادة حركة الكاحل والتوازن",
+      "description": "إطالات وتقوية ورفع للكعب بعد السماح الطبي بالبدء في التأهيل.",
+      "url": "https://www.youtube.com/watch?v=-FmJLBlBlNU",
+      "duration": "11 دقيقة",
+      "level": "بعد موافقة المختص",
+      "order": 9,
+      "active": true
+    },
+    {
+      "id": "video-10",
+      "categoryId": "test",
+      "title": "اختبار من اكسل",
+      "description": "اختبار من اكسل لفيديو جديد",
+      "url": "https://youtu.be/bXJkZ5fGU7c?si=sfPWYYwzcKZD0hxW",
+      "duration": "5 دقائق",
+      "level": "بعد موافقة المختص",
+      "order": 10,
+      "active": true
+    }
+  ],
+  "surveys": [
+    {
+      "id": "pain",
+      "title": "تقييم الألم والمتابعة",
+      "description": "سجّل حالتك الحالية كما هي اليوم.",
+      "order": 1,
+      "active": true
+    },
+    {
+      "id": "function",
+      "title": "الوظيفة اليومية",
+      "description": "قيّم مقدار الصعوبة خلال الأيام السبعة الماضية.",
+      "order": 2,
+      "active": true
+    },
+    {
+      "id": "adherence",
+      "title": "الالتزام بالبرنامج المنزلي",
+      "description": "أخبر اختصاصي العلاج الطبيعي عن التمارين المنزلية.",
+      "order": 3,
+      "active": true
+    }
+  ],
+  "questions": [
+    {
+      "id": "patient_name",
+      "surveyId": "pain",
+      "title": "اسم المريض",
+      "type": "نص",
+      "required": true,
+      "order": 1,
+      "min": "",
+      "max": "",
+      "hint": "الاسم الثلاثي"
+    },
+    {
+      "id": "report_date",
+      "surveyId": "pain",
+      "title": "تاريخ التقييم",
+      "type": "تاريخ",
+      "required": true,
+      "order": 2,
+      "min": "",
+      "max": "",
+      "hint": ""
+    },
+    {
+      "id": "patient_id",
+      "surveyId": "pain",
+      "title": "رقم الملف",
+      "type": "نص",
+      "required": false,
+      "order": 3,
+      "min": "",
+      "max": "",
+      "hint": "اختياري"
+    },
+    {
+      "id": "treatment_area",
+      "surveyId": "pain",
+      "title": "منطقة العلاج",
+      "type": "فئة",
+      "required": false,
+      "order": 4,
+      "min": "",
+      "max": "",
+      "hint": "اختر منطقة العلاج"
+    },
+    {
+      "id": "pain_level",
+      "surveyId": "pain",
+      "title": "شدة الألم الآن",
+      "type": "مقياس",
+      "required": false,
+      "order": 5,
+      "min": 0,
+      "max": 10,
+      "hint": "0 يعني لا يوجد ألم، و10 أشد ألم ممكن"
+    },
+    {
+      "id": "pain_change",
+      "surveyId": "pain",
+      "title": "كيف تغيّر الألم منذ الزيارة السابقة؟",
+      "type": "اختيار",
+      "required": false,
+      "order": 6,
+      "min": "",
+      "max": "",
+      "hint": ""
+    },
+    {
+      "id": "pain_notes",
+      "surveyId": "pain",
+      "title": "متى يظهر الألم؟ وما الذي يزيده أو يخففه؟",
+      "type": "فقرة",
+      "required": false,
+      "order": 7,
+      "min": "",
+      "max": "",
+      "hint": ""
+    },
+    {
+      "id": "walk_10",
+      "surveyId": "function",
+      "title": "المشي لمدة عشر دقائق",
+      "type": "اختيار",
+      "required": false,
+      "order": 1,
+      "min": "",
+      "max": "",
+      "hint": ""
+    },
+    {
+      "id": "stairs",
+      "surveyId": "function",
+      "title": "صعود السلالم أو نزولها",
+      "type": "اختيار",
+      "required": false,
+      "order": 2,
+      "min": "",
+      "max": "",
+      "hint": ""
+    },
+    {
+      "id": "sit_stand",
+      "surveyId": "function",
+      "title": "الجلوس أو الوقوف لمدة نصف ساعة",
+      "type": "اختيار",
+      "required": false,
+      "order": 3,
+      "min": "",
+      "max": "",
+      "hint": ""
+    },
+    {
+      "id": "sleep",
+      "surveyId": "function",
+      "title": "النوم براحة خلال الليل",
+      "type": "اختيار",
+      "required": false,
+      "order": 4,
+      "min": "",
+      "max": "",
+      "hint": ""
+    },
+    {
+      "id": "daily_tasks",
+      "surveyId": "function",
+      "title": "أداء العمل أو المهام المنزلية",
+      "type": "اختيار",
+      "required": false,
+      "order": 5,
+      "min": "",
+      "max": "",
+      "hint": ""
+    },
+    {
+      "id": "sessions",
+      "surveyId": "adherence",
+      "title": "كم مرة أدّيت التمارين خلال آخر 7 أيام؟",
+      "type": "اختيار",
+      "required": false,
+      "order": 1,
+      "min": "",
+      "max": "",
+      "hint": ""
+    },
+    {
+      "id": "difficulty",
+      "surveyId": "adherence",
+      "title": "مدى سهولة اتباع البرنامج",
+      "type": "اختيار",
+      "required": false,
+      "order": 2,
+      "min": "",
+      "max": "",
+      "hint": ""
+    },
+    {
+      "id": "missed_reason",
+      "surveyId": "adherence",
+      "title": "إذا فاتتك التمارين، فما السبب الرئيسي؟",
+      "type": "اختيار",
+      "required": false,
+      "order": 3,
+      "min": "",
+      "max": "",
+      "hint": ""
+    },
+    {
+      "id": "extra_notes",
+      "surveyId": "adherence",
+      "title": "ملاحظات تريد مشاركتها مع اختصاصي العلاج الطبيعي",
+      "type": "فقرة",
+      "required": false,
+      "order": 4,
+      "min": "",
+      "max": "",
+      "hint": ""
+    },
+    {
+      "id": "extra_test",
+      "surveyId": "adherence",
+      "title": "test كلام",
+      "type": "فقرة",
+      "required": false,
+      "order": 5,
+      "min": "",
+      "max": "",
+      "hint": "تجربة"
+    }
+  ],
+  "options": [
+    {
+      "questionId": "pain_change",
+      "title": "تحسّن بوضوح",
+      "order": 1
+    },
+    {
+      "questionId": "pain_change",
+      "title": "تحسّن قليلًا",
+      "order": 2
+    },
+    {
+      "questionId": "pain_change",
+      "title": "لم يتغير",
+      "order": 3
+    },
+    {
+      "questionId": "pain_change",
+      "title": "ازداد قليلًا",
+      "order": 4
+    },
+    {
+      "questionId": "pain_change",
+      "title": "ازداد بوضوح",
+      "order": 5
+    },
+    {
+      "questionId": "walk_10",
+      "title": "لا صعوبة",
+      "order": 1
+    },
+    {
+      "questionId": "walk_10",
+      "title": "صعوبة بسيطة",
+      "order": 2
+    },
+    {
+      "questionId": "walk_10",
+      "title": "صعوبة متوسطة",
+      "order": 3
+    },
+    {
+      "questionId": "walk_10",
+      "title": "صعوبة كبيرة",
+      "order": 4
+    },
+    {
+      "questionId": "walk_10",
+      "title": "لم أستطع",
+      "order": 5
+    },
+    {
+      "questionId": "stairs",
+      "title": "لا صعوبة",
+      "order": 1
+    },
+    {
+      "questionId": "stairs",
+      "title": "صعوبة بسيطة",
+      "order": 2
+    },
+    {
+      "questionId": "stairs",
+      "title": "صعوبة متوسطة",
+      "order": 3
+    },
+    {
+      "questionId": "stairs",
+      "title": "صعوبة كبيرة",
+      "order": 4
+    },
+    {
+      "questionId": "stairs",
+      "title": "لم أستطع",
+      "order": 5
+    },
+    {
+      "questionId": "sit_stand",
+      "title": "لا صعوبة",
+      "order": 1
+    },
+    {
+      "questionId": "sit_stand",
+      "title": "صعوبة بسيطة",
+      "order": 2
+    },
+    {
+      "questionId": "sit_stand",
+      "title": "صعوبة متوسطة",
+      "order": 3
+    },
+    {
+      "questionId": "sit_stand",
+      "title": "صعوبة كبيرة",
+      "order": 4
+    },
+    {
+      "questionId": "sit_stand",
+      "title": "لم أستطع",
+      "order": 5
+    },
+    {
+      "questionId": "sleep",
+      "title": "لا صعوبة",
+      "order": 1
+    },
+    {
+      "questionId": "sleep",
+      "title": "صعوبة بسيطة",
+      "order": 2
+    },
+    {
+      "questionId": "sleep",
+      "title": "صعوبة متوسطة",
+      "order": 3
+    },
+    {
+      "questionId": "sleep",
+      "title": "صعوبة كبيرة",
+      "order": 4
+    },
+    {
+      "questionId": "sleep",
+      "title": "لم أستطع",
+      "order": 5
+    },
+    {
+      "questionId": "daily_tasks",
+      "title": "لا صعوبة",
+      "order": 1
+    },
+    {
+      "questionId": "daily_tasks",
+      "title": "صعوبة بسيطة",
+      "order": 2
+    },
+    {
+      "questionId": "daily_tasks",
+      "title": "صعوبة متوسطة",
+      "order": 3
+    },
+    {
+      "questionId": "daily_tasks",
+      "title": "صعوبة كبيرة",
+      "order": 4
+    },
+    {
+      "questionId": "daily_tasks",
+      "title": "لم أستطع",
+      "order": 5
+    },
+    {
+      "questionId": "sessions",
+      "title": "لم أؤدِّ التمارين",
+      "order": 1
+    },
+    {
+      "questionId": "sessions",
+      "title": "مرة واحدة",
+      "order": 2
+    },
+    {
+      "questionId": "sessions",
+      "title": "مرتان إلى 3 مرات",
+      "order": 3
+    },
+    {
+      "questionId": "sessions",
+      "title": "4 إلى 5 مرات",
+      "order": 4
+    },
+    {
+      "questionId": "sessions",
+      "title": "6 إلى 7 مرات",
+      "order": 5
+    },
+    {
+      "questionId": "sessions",
+      "title": "أكثر من مرة يوميًا",
+      "order": 6
+    },
+    {
+      "questionId": "difficulty",
+      "title": "سهل جدًا",
+      "order": 1
+    },
+    {
+      "questionId": "difficulty",
+      "title": "سهل",
+      "order": 2
+    },
+    {
+      "questionId": "difficulty",
+      "title": "مقبول",
+      "order": 3
+    },
+    {
+      "questionId": "difficulty",
+      "title": "صعب",
+      "order": 4
+    },
+    {
+      "questionId": "difficulty",
+      "title": "صعب جدًا",
+      "order": 5
+    },
+    {
+      "questionId": "missed_reason",
+      "title": "لا ينطبق",
+      "order": 1
+    },
+    {
+      "questionId": "missed_reason",
+      "title": "زيادة الألم أو الأعراض",
+      "order": 2
+    },
+    {
+      "questionId": "missed_reason",
+      "title": "ضيق الوقت",
+      "order": 3
+    },
+    {
+      "questionId": "missed_reason",
+      "title": "لم أتذكر طريقة التمرين",
+      "order": 4
+    },
+    {
+      "questionId": "missed_reason",
+      "title": "لم أفهم التعليمات",
+      "order": 5
+    },
+    {
+      "questionId": "missed_reason",
+      "title": "لم تتوفر الأدوات",
+      "order": 6
+    },
+    {
+      "questionId": "missed_reason",
+      "title": "سبب آخر",
+      "order": 7
+    }
+  ]
+}
